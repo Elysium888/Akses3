@@ -267,6 +267,39 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:30px;text-align:center
 </div>
 </header>
 
+<div id="urgency-timer" style="background: linear-gradient(90deg, #b8860b, #ffd700); color: #000; padding: 10px; text-align: center; font-family: sans-serif; font-weight: bold; border-radius: 5px; margin: 10px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+    <span id="timer-text" style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+        ⚠️ SISA WAKTU KLAIM BONUS DEPOSIT 100% & ID VIP:
+    </span>
+    <div id="countdown" style="font-size: 24px; margin-top: 5px; font-variant-numeric: tabular-nums;">07:43</div>
+</div>
+
+<script>
+// Fungsi Timer Otomatis
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration; // Reset otomatis jika habis, agar LP tidak terlihat mati
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 7 + 43, // Kita set di 7 menit 43 detik (Angka Ganjil)
+        display = document.querySelector('#countdown');
+    startTimer(fiveMinutes, display);
+};
+</script>
+  
 <!-- 3 Hero Banner -->
 <section id="promo-banner">
 <div class="container">
